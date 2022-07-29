@@ -1,0 +1,21 @@
+body {
+  margin: 0 auto;
+  background-color: gainsboro;
+}
+.container {
+  width: 1000px;
+  height: auto;
+  background-color: white;
+  margin: auto;
+}
+
+.logo {
+  float: left;
+}
+.seacrh {
+  float: right;
+}
+
+.clearfix {
+  clear: both;
+}
