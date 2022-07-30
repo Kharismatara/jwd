@@ -107,3 +107,36 @@ body {
   color: white;
   font-family: sans-serif;
 }
+.main-footer {
+  background-color: black;
+  color: white;
+  width: 950px;
+  height: auto;
+  padding: 25px;
+}
+.footer-box {
+  width: 237.5px;
+  height: auto;
+  float: left;
+}
+.footer-box ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+}
+.footer-box ul > li {
+  text-decoration: none;
+  color: white;
+  font-size: small;
+  display: block;
+  margin-bottom: 5px;
+}
+.banner {
+  width: 1000px;
+  height: 416.66px;
+  overflow: hidden;
+}
+.banner img {
+  width: 1000px;
+  height: auto;
+}
