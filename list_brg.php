@@ -86,8 +86,8 @@
               <td><?= $row["warna"]?></td>
               <td><?= $row["jumlah"]?></td>
               <td>
-              <button > <a href="./action/edit_brg.php? id= <?= $row["no"]; ?>" >edit</a></button>
-                <button > <a href="./action/delete_brg.php? id= <?= $row["no"]; ?>" >deleted</a></button>
+              <button > <a href="edit_brg.php? id= <?= $row["no"]; ?>" >edit</a></button>
+                <button > <a href="delete_brg.php? id= <?= $row["no"]; ?>" >deleted</a></button>
                 
             </tr>
             <?php endforeach; ?>
