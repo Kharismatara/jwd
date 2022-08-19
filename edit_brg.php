@@ -7,24 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
-</head>
   <body>
     <div class="container">
       <!---awal header-->
@@ -72,46 +54,48 @@ tr:nth-child(even) {
       <!---awal content-->
       <section class="content-holder">
         <article class="content">
-          <?php 
-          include('utils/koneksi.php');
-          $query = 'SELECT * FROM barang';
-          $result = mysqli_query($conn, $query);
+        <?php
 
-          ?>
+include('utils/koneksi.php');
+$id = $_GET['id'];
+$query = "SELECT * FROM barang where no=$id";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_array($result);
 
-          <h1>DAFTAR BARANG </h1>
-          <a href="tambah_brg.php" style="float: right;"> TAMBAH BARANG</a>
-          <br>
-          <br>
-          <table border="1">
-            <tr>
-              <th>NO</th>
-              <th>Nama</th>
-              <th>Warna</th>
-              <th>Jumlah</th>
-              <th>AKSI</th>
+?>
 
-             
-            </tr>
+<h1>FORM EDIT BARANG</h1>
+<form action="action/editbrg.php" method="POST">
+  <table>
+    <tr>
+      <td><label for="no_brg"></label></td>
+      <td> <input type="hidden" name="no" id="no" value="<?= $row['no'] ?>"></td>
+    </tr>
+    <tr>
+      <td><label for="nama_barang">Nama</label></td>
+      <td> <input type="text" name="nama" value="<?= $row['nama'] ?>"></td>
+    </tr>
+    <tr>
+      <td><label for="warna_barang">Warna</label></td>
+      <td> <input type="text" name="warna" value="<?= $row['warna'] ?>"></td>
+    </tr>
+    <tr>
+      <td><label for="jumlah_barang">Jumlah</label></td>
+      <td> <input type="number" name="jumlah" value="<?= $row['jumlah'] ?>"></td>
+    </tr>
 
-            <?php 
-             foreach($result as $row ):
-            
-            ?>
-            <tr>
-              <td><?= $row["no"]?></td>
-              <td><?= $row["nama"]?></td>
-              <td><?= $row["warna"]?></td>
-              <td><?= $row["jumlah"]?></td>
-              <td>
-              <button > <a href="edit_brg.php? id= <?= $row["no"]; ?>" >edit</a></button>
-              <button > <a href="action/deleted.php? id= <?= $row["no"]; ?>" >deleted</a></button>
-               
-                
-            </tr>
-            <?php endforeach; ?>
-          </table>
-  
+    <tr>
+      <td><input type="submit" name="save" value="update"></td>
+    </tr>
+
+
+
+
+  </table>
+
+
+</form>
+
         </article>
 
         <aside class="sidebar">
